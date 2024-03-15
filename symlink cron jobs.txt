@@ -1,0 +1,1 @@
+ln -s /home/reabasti/posbdg/storage/app/public /home/reabasti/public_html/posbdg/storage

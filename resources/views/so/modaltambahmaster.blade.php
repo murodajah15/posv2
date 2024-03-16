@@ -137,8 +137,8 @@ $hapus = '';
                                 <td><select required id='jenis_order' name='jenis_order'
                                         class='form-control form-control-sm' style='width: 200x;'
                                         {{ str_contains($vdata['title'], 'Detail') ? 'disabled' : '' }}>
-                                        <option value="URGENT">URGENT</option>
                                         <option value="NORMAL">NORMAL</option>
+                                        <option value="URGENT">URGENT</option>
                                         <option value="LAIN">LAIN-LAIN</option>
                                     </select>
                                 </td>

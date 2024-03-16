@@ -11,7 +11,6 @@
     $proses = session('proses');
     $unproses = session('unproses');
     $cetak = session('cetak');
-    $b = '11111aaaaa';
     ?>
 
     <!-- Content Wrapper. Contains page content -->

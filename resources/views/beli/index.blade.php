@@ -120,6 +120,9 @@
     <div class="modal fade" id="modalbatalproses" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
     </div>
+    <div class="modal fade" id="modaltampilpembayaran" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    </div>
 
     <script>
         reload_table();

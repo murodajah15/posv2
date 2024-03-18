@@ -200,6 +200,7 @@ Route::middleware('auth')->group(function () {
   Route::get('caribeli', [CariController::class, 'caribeli'])->name('caribeli');
   Route::get('replbeli', [CariController::class, 'replbeli'])->name('replbeli');
   Route::get('tampilpembayaran', [CariController::class, 'tampilpembayaran'])->name('tampilpembayaran');
+  Route::get('tampilpembayaranhutang', [CariController::class, 'tampilpembayaranhutang'])->name('tampilpembayaranhutang');
   // Route::get('caricustomer', [SoController::class, 'caricustomer'])->name('caricustomer');
   // Route::get('replcustomer', [SoController::class, 'replcustomer'])->name('replcustomer');
   // Route::get('carisales', [SoController::class, 'carisales'])->name('carisales');

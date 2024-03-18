@@ -240,7 +240,8 @@ $gnppn = session('ppn');
                             </tr>
                             @if (str_contains($vdata['title'], 'Detail'))
                                 <tr>
-                                    <td>Sudah Bayar</td>
+                                    <td>Sudah Bayar <button type="button" class="btn btn-secondary btn-sm"
+                                            id='tampilpembayaran'>Pembayaran</button></td>
                                     <td><input type="number" class="form-control form-control-sm"
                                             style="text-align:right" name="sudahbayar" id="sudahbayar"
                                             value="{{ $beli->sudahbayar }}" readonly>
@@ -686,6 +687,22 @@ $gnppn = session('ppn');
             }
         })
         // console.log(cari);
+    })
+
+    $('#tampilpembayaran').on('click', function(e) {
+        let cari = document.getElementById('nobeli').value
+        $.ajax({
+            method: "GET",
+            url: "tampilpembayaranhutang",
+            dataType: "json",
+            data: {
+                cari: cari
+            },
+            success: function(response) {
+                $('#modaltampilpembayaran').html(response.body)
+                $("#modaltampilpembayaran").modal('show');
+            }
+        })
     })
 
     function hitppn() {

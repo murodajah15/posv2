@@ -18,6 +18,7 @@ use App\Models\Belih;
 use App\Models\Mohklruangh;
 use App\Models\Kasir_tagihand;
 use App\Models\Kasir_tunai;
+use App\Models\Kasir_keluard;
 
 // //return type View
 // use Illuminate\View\View;
@@ -706,6 +707,27 @@ class CariController extends Controller
           'kasir_tagihand' => DB::table('kasir_tagihand')->join('kasir_tagihan', 'kasir_tagihand.nokwitansi', '=', 'kasir_tagihan.nokwitansi')
             ->select('kasir_tagihand.*', 'kasir_tagihan.tglkwitansi')->where('kasir_tagihand.nojual', $cari)->get(),
           'kasir_tunai' => Kasir_tunai::where('proses', 'Y')->where('nojual', $cari)->orderBy('nokwitansi', 'desc')->get(),
+          'vdata' => $data,
+        ])->render(),
+        'data' => $data,
+      ]);
+    } else {
+      exit('Maaf tidak dapat diproses');
+    }
+  }
+
+  public function tampilpembayaranhutang(Request $request)
+  {
+    if ($request->Ajax()) {
+      $cari = $_GET['cari'];
+      $data = [
+        'title' => 'Tampil Pembayaran Hutang ' . $cari,
+      ];
+      return response()->json([
+        'body' => view('modalcari.modaltampilpembayaranhutang', [
+          'kasir_keluard' => Kasir_keluard::join('kasir_keluarh', 'kasir_keluard.nokwitansi', '=', 'kasir_keluarh.nokwitansi')
+            ->select('kasir_keluard.*', 'kasir_keluarh.tglkwitansi', 'kasir_keluarh.carabayar')
+            ->where('kasir_keluard.nodokumen', $cari)->where('kasir_keluarh.proses', 'Y')->orderBy('nokwitansi', 'desc')->get(),
           'vdata' => $data,
         ])->render(),
         'data' => $data,

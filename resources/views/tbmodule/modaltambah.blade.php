@@ -73,7 +73,7 @@ $session = session();
                 <div class="col-md-12 mb-2">
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" id="cmainmenu" name="cmainmenu"
-                            {{ (str_contains($vdata['title'], 'Tambah') ? 'checked' : $tbmodule->cmainmenu == 'Y') ? 'checked' : '' }}
+                            {{ (str_contains($vdata['title'], 'Tambah') ? '' : $tbmodule->cmainmenu == 'Y') ? 'checked' : '' }}
                             {{ str_contains($vdata['title'], 'Detail') ? 'disabled' : '' }}>
                         <label class="form-check-label" for="cmainmenu">Main Menu / Parent</label>
                     </div>
@@ -104,7 +104,7 @@ $session = session();
 
 <script>
     var myModal = document.getElementById('modaltambah')
-    var myInput = document.getElementById('kode')
+    var myInput = document.getElementById('nurut')
     // myModal.addEventListener('shown.bs.modal', function() {
     //     myInput.focus()
     // })

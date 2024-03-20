@@ -82,8 +82,6 @@
         </div>
         <!-- /.content-header -->
     </div>
-    </div>
-
 
     <div class="viewmodal" style="display: none;"></div>
 

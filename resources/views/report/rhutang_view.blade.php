@@ -12,11 +12,11 @@ $tgl1 = date('Y-m-d', strtotime($tanggal1));
 $tgl2 = date('Y-m-d', strtotime($tanggal2));
 $no = 1;
 
-if ($semuasupplier != 'Y') {
-    echo 'supplier : ' . $kdsupplier . ' - ' . $nmsupplier;
-} else {
-    $kdsupplier = '';
-}
+// if ($semuasupplier != 'Y') {
+//     echo 'supplier : ' . $kdsupplier . ' - ' . $nmsupplier;
+// } else {
+//     $kdsupplier = '';
+// }
 
 $tgl = $semuaperiode == 'Y' ? 'Semua Periode' : $tgl1 . ' s/d ' . $tgl2;
 

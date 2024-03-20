@@ -11,12 +11,6 @@ $tgl1 = date('Y-m-d', strtotime($tanggal1));
 $tgl2 = date('Y-m-d', strtotime($tanggal2));
 $no = 1;
 
-if ($semuacustomer != 'Y') {
-    echo 'Customer : ' . $kdcustomer . ' - ' . $nmcustomer;
-} else {
-    $kdcustomer = '';
-}
-
 $tanggal = $semuaperiode == 'Y' ? 'Semua Periode' : $tanggal1 . ' s/d ' . $tanggal2;
 
 ?>
@@ -57,6 +51,12 @@ $tanggal = $semuaperiode == 'Y' ? 'Semua Periode' : $tanggal1 . ' s/d ' . $tangg
             }
             //echo $tgl1.'  '.$tgl2;
         }
+    }
+
+    if ($semuacustomer != 'Y') {
+        echo '<br><b>Customer : ' . $kdcustomer . ' - ' . $nmcustomer . '</b></br>';
+    } else {
+        $kdcustomer = '';
     }
 
     $cek = mysqli_num_rows($queryh);

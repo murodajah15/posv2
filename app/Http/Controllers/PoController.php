@@ -46,7 +46,8 @@ class PoController extends Controller
   public function poajax(Request $request) //: View
   {
     if ($request->ajax()) {
-      $data = Poh::select('*'); //->orderBy('kode', 'asc');
+      // $data = Poh::select('*'); //->orderBy('kode', 'asc');
+      $data = Poh::select('id', DB::raw("DATE_FORMAT(poh.tglpo, '%Y-%m-%d') as tglpo"), 'nopo', 'nmsupplier', 'total', 'proses', 'batal'); //->orderBy('kode', 'asc');
       return Datatables::of($data)
         ->addIndexColumn()
         ->addColumn('kode1', function ($row) {

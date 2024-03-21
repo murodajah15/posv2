@@ -509,6 +509,7 @@ $hapus = $userdtl->hapus;
                                 // })
                                 reload_table_detail();
                                 reload_total_detail();
+                                reload_table();
                                 toastr.info('Data berhasil dihapus, silahkan melanjutkan')
                                 // .then(function() {
                                 //     window.location.href = '/tbbarang';

@@ -131,6 +131,7 @@ class PoController extends Controller
         $poh->fill([
           'nopo' => isset($request->nopo) ? $new_code : '',
           'tglpo' => isset($request->tglpo) ? $request->tglpo : '',
+          'noreferensi' => isset($request->noreferensi) ? $request->noreferensi : '',
           'kdsupplier' => isset($request->kdsupplier) ? $request->kdsupplier : '',
           'nmsupplier' => isset($request->nmsupplier) ? $request->nmsupplier : '',
           'tglkirim' => isset($request->tglkirim) ? $request->tglkirim : '',
@@ -272,6 +273,7 @@ class PoController extends Controller
         $poh->fill([
           'nopo' => isset($request->nopo) ? $request->nopo : '',
           'tglpo' => isset($request->tglpo) ? $request->tglpo : '',
+          'noreferensi' => isset($request->noreferensi) ? $request->noreferensi : '',
           'kdsupplier' => isset($request->kdsupplier) ? $request->kdsupplier : '',
           'nmsupplier' => isset($request->nmsupplier) ? $request->nmsupplier : '',
           'tglkirim' => isset($request->tglkirim) ? $request->tglkirim : '',

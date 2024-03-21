@@ -93,6 +93,7 @@
                                             <i class='fas fa-key'></i>
                                         </div>
                                     </div>
+                                    <p id="capslockon">Caps lock is ON.</p>
                                     <button type="submit" class="btn btn-primary mt-2 col-12">Log
                                         In</button>
                                     <hr>
@@ -115,6 +116,30 @@
                     {{-- </div> --}}
                 </div>
         </div>
+
+        <script>
+            document.getElementById("capslockon").style.display = "none";
+            var inputusername = document.getElementById("username");
+            var text = document.getElementById("capslockon");
+            inputusername.addEventListener("keyup", function(event) {
+                if (event.getModifierState("CapsLock")) {
+                    text.style.display = "block";
+                } else {
+                    text.style.display = "none"
+                }
+            });
+
+            var inputpassword = document.getElementById("password");
+            var text = document.getElementById("capslockon");
+            inputpassword.addEventListener("keyup", function(event) {
+                if (event.getModifierState("CapsLock")) {
+                    text.style.display = "block";
+                } else {
+                    text.style.display = "none"
+                }
+            });
+        </script>
+
 </body>
 
 {{-- <body onload="document.login.email.focus()" style="background-image: url('assets/image/shattered_@2X.png')">

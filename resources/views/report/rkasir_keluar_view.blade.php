@@ -66,7 +66,7 @@ if ($semuasupplier == 'Y') {
                 $queryd = mysqli_query($connect, "select kasir_keluarh.nokwitansi,kasir_keluarh.tglkwitansi,kasir_keluarh.nmjnkeluar,kasir_keluard.nodokumen,kasir_keluard.tgldokumen,kasir_keluard.uang,kasir_keluard.kdsupplier,kasir_keluard.nmsupplier from kasir_keluarh inner join kasir_keluard on kasir_keluarh.nokwitansi=kasir_keluard.nokwitansi where kasir_keluarh.proses='Y' and kasir_keluarh.nokwitansi='$nokwitansi'");
             } else {
                 $tanggal = $tanggal1 . ' s/d ' . $tanggal2;
-                $queryd = mysqli_query($connect, "select kasir_keluarh.nokwitansi,kasir_keluarh.tglkwitansi,kasir_keluarh.nmjnkeluar,kasir_keluarh.nmcustomer,kasir_keluard.nodokumen,kasir_keluard.tgldokumen,kasir_keluard.uang,kasir_keluard.kdsupplier,kasir_keluard.nmsupplier from kasir_keluarh inner join kasir_keluard on kasir_keluarh.nokwitansi=kasir_keluard.nokwitansi where kasir_keluarh.proses='Y' and (kasir_keluarh.tglkwitansi>='$tgl1' and kasir_keluarh.tglkwitansi<='$tgl2') and kasir_keluard.nokwitansi='$nokwitansi'");
+                $queryd = mysqli_query($connect, "select kasir_keluarh.nokwitansi,kasir_keluarh.tglkwitansi,kasir_keluarh.nmjnkeluar,kasir_keluard.nmsupplier,kasir_keluard.nodokumen,kasir_keluard.tgldokumen,kasir_keluard.uang,kasir_keluard.kdsupplier,kasir_keluard.nmsupplier from kasir_keluarh inner join kasir_keluard on kasir_keluarh.nokwitansi=kasir_keluard.nokwitansi where kasir_keluarh.proses='Y' and (kasir_keluarh.tglkwitansi>='$tgl1' and kasir_keluarh.tglkwitansi<='$tgl2') and kasir_keluard.nokwitansi='$nokwitansi'");
             }
             $jumsubtotal = 0;
             while ($rowd = mysqli_fetch_assoc($queryd)) {
@@ -116,9 +116,9 @@ if ($semuasupplier == 'Y') {
         echo '<br><br><table border="0">
     <tr>
     <th width="30px" height="50" valign="top"><font size="1" color="black">KASIR</th>
-    <tr><td height="20px" width="120" align="center">( ' .
+    <tr><td height="20px" width="120" align="center">' .
             $nmkasir .
-            ')</td>
+            '</td>
    </tr></table>';
     } else {
         echo '<table table-layout="fixed"; cellpadding="2"; cellspacing="0"; style=font-size:11px; class="table table-striped table table-bordered;">

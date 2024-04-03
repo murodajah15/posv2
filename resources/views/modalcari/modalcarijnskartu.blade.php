@@ -88,7 +88,7 @@ $session = session();
             $('#kdjnskartu').val(((dt_split[1]).replace("--separator--", "")).trim());
             $('#nmjnskartu').val(((dt_split[2]).replace("--separator--", "")).trim());
             $('#modalcarijnskartu').modal('hide');
-            $('#modaltambahmaster').modal('show');
+            // $('#modaltambahmaster').modal('show');
             $('#kdjnskartu').focus();
         };
     }

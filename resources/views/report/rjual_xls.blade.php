@@ -20,6 +20,8 @@
     <input type="hidden" name="semuasales" value="<?= $semuasales ?>">
     <input type="hidden" name="kdsales" value="<?= $kdsales ?>">
     <input type="hidden" name="nmsales" value="<?= $nmsales ?>">
+    <input type="hidden" name="kdkurir" value="<?= $kdkurir ?>">
+    <input type="hidden" name="nmkurir" value="<?= $nmkurir ?>">
     <input type="hidden" name="semuaklpcust" value="<?= $semuaklpcust ?>">
     <input type="hidden" name="kdklpcust" value="<?= $kdklpcust ?>">
     <input type="hidden" name="nmklpcust" value="<?= $nmklpcust ?>">

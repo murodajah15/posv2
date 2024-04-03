@@ -56,13 +56,13 @@ $gnppn = session('ppn');
                                         autocomplete='off' required readonly>
                                 </td>
                             </tr>
-                            <tr>
+                            {{-- <tr>
                                 <td>No. Referensi</td>
                                 <td> <input type="text" class='form-control form-control-sm' id='noreferensi'
                                         name='noreferensi' size='50' autocomplete='off'
                                         value="{{ $beli->noreferensi }}"
                                         {{ str_contains($vdata['title'], 'Detail') ? 'readonly' : '' }}></td>
-                            </tr>
+                            </tr> --}}
                             <tr>
                                 <td>No. Invoice</td>
                                 <td> <input type="text" class='form-control form-control-sm' id='noinvoice'

@@ -25,6 +25,9 @@ $html .=
 	<tr><td width="30" style="font-size:12px;">Tanggal </td></td><td width="280" style="font-size:13px";>: ' .
     $terimah->tglterima .
     '</td>
+    <tr><td width="30" style="font-size:12px;">Referensi </td></td><td width="280" style="font-size:13px";>: ' .
+    $terimah->noreferensi .
+    '</td>
 			</td><td width="180" style="font-size:11px";>' .
     '</td></tr>
 		</table>
@@ -99,7 +102,7 @@ $html .=
     $ntotal .
     '&nbsp;</td></tr>
 		</table>';
-
+$html .= '<br><span style="font-size:12px;">' . ($terimah->keterangan != '' ? 'Keterangan : ' : '') . $terimah->keterangan . '</span>';
 echo $html;
 ?>
 {{-- 

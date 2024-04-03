@@ -375,7 +375,7 @@ class CariController extends Controller
         // 'menu' => 'transaksi',
         // 'submenu' => 'kurir',
         // 'submenu1' => 'ref_umum',
-        'title' => 'Cari Data kurir',
+        'title' => 'Cari Data Kurir',
       ];
       // var_dump($data);
       return response()->json([

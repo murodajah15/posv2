@@ -109,7 +109,6 @@ $session = session();
                             $('#nama').addClass('is-valid');
                         }
                     } else {
-                        $('#modaltambah').modal('hide');
                         // swal({
                         //     title: "Data berhasil disimpann",
                         //     text: "",
@@ -124,6 +123,7 @@ $session = session();
                         //     icon: "success",
                         // })
                         // reload_table();
+                        $('#modaltambah').modal('hide');
                         toastr.info('Data berhasil di simpan, silahkan melanjutkan')
                         // .then(function() {
                         //     window.location.href = '/so';

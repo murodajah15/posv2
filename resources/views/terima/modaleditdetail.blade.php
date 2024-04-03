@@ -113,6 +113,12 @@ $session = session();
         $('#discount').on('keyup', function(e) {
             hit_subtotal();
         })
+        $('#qty').on('focus', function(e) {
+            hit_subtotal();
+        })
+        $('#kdbarang').on('focus', function(e) {
+            hit_subtotal();
+        })
         // $('#multiprc').on('ifChanged', function(event) {
         $('#multiprc').on('click', function(event) {
             if (this.checked) // if changed state is "CHECKED"

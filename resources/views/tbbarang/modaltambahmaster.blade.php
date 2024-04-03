@@ -50,8 +50,7 @@ $tambahtbgudang = $tambahtbgudang->tambah;
                         <div class="col-md-12">
                             <label for="kode" class="label mb-1">Kode</label>
                             <input type="text" class="form-control form-control-sm mt-1" name="kode"
-                                id="kode" value="{{ $tbbarang->kode }}"
-                                {{ str_contains($session->get('level'), 'ADMINISTRATOR') ? '' : 'readonly' }}
+                                id="kode" value="{{ $tbbarang->kode }}" {{-- {{ str_contains($session->get('level'), 'ADMINISTRATOR') ? '' : 'readonly' }} --}}
                                 {{ str_contains($vdata['title'], 'Detail') ? 'readonly' : '' }}
                                 {{ str_contains($vdata['title'], 'Detail') ? '' : 'autofocus' }}>
                         </div>

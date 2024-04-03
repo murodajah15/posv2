@@ -87,7 +87,7 @@ $session = session();
             $('#kdgudang').val(((dt_split[1]).replace("--separator--", "")).trim());
             $('#nmgudang').val(((dt_split[2]).replace("--separator--", "")).trim());
             $('#modalcarigudang').modal('hide');
-            $('#modaltambahmaster').modal('show');
+            // $('#modaltambahmaster').modal('show');
             $('#kdgudang').focus();
         };
     }

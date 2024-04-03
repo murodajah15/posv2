@@ -28,7 +28,8 @@ $session = session();
                                     <th width="450">Alamat</th>
                                 </tr>
                             </thead>
-                            <tbody id="isi_data" class="isi_data">
+                            {{-- <tbody id="isi_data" class="isi_data"> --}}
+                            <tbody>
                                 <?php $no = 0; ?>
                                 @foreach ($tbkurir as $row)
                                     <?php $no++; ?>
@@ -90,7 +91,7 @@ $session = session();
             $('#kdkurir').val(((dt_split[1]).replace("--separator--", "")).trim());
             $('#nmkurir').val(((dt_split[2]).replace("--separator--", "")).trim());
             $('#modalcarikurir').modal('hide');
-            $('#modaltambah').modal('show');
+            // $('#modaltambahmaster').modal('show');
             $('#kdkurir').focus();
         };
     }

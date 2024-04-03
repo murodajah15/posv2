@@ -226,8 +226,102 @@
                         </font>
                     </div>
 
+                    <div class="row">
+                        <div class='col-md-12'>
+                            {{-- start cek jual --}}
+                            &nbsp;<b>Cek Pembelian</b>
+                            <table id="cek_beli" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th width='30'>No.</th>
+                                        <th>No.Beli</th>
+                                        <th>Kode Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Qty</th>
+                                        <th>Harga</th>
+                                        <th>Disc.(%)</th>
+                                        <th>Subtotal_X</th>
+                                        <th>Subtotal_OK</th>
+                                    </tr>
+                                </thead>
+                                <?php 
+                            $no = 0;
+                            foreach ($belid as $k){
+                                $subtotal = $k->qty * $k->harga;
+                                $disc = $subtotal * ($k->discount/100);
+                                $subtotal_disc = $subtotal - $disc;
+                                if ($k->subtotal != round(($subtotal_disc),0)){
+                                    $no++;
+                                    ?>
+                                <tr>
+                                    <td align='center'>{{ $no }}</td>
+                                    <td>{{ $k->nobeli }}</td>
+                                    <td>{{ $k->kdbarang }}</td>
+                                    <td>{{ $k->nmbarang }}</td>
+                                    <td style='text-align:right'>{{ $k->qty }}</td>
+                                    <td style='text-align:right'>{{ $k->harga }}</td>
+                                    <td style='text-align:right'>{{ $k->discount }}</td>
+                                    <td style='text-align:right'>{{ $k->subtotal }}</td>
+                                    <td style='text-align:right'>{{ $subtotal_disc }}</td>
+                                </tr>
+                                <?php
+                                }
+                            }
+                        ?>
+                            </table>
+                            {{-- end cek jual --}}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class='col-md-12'>
+                            {{-- start cek jual --}}
+                            &nbsp;<b>Cek Penjualan</b>
+                            <table id="cek_jual" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th width='30'>No.</th>
+                                        <th>No.Jual</th>
+                                        <th>Kode Barang</th>
+                                        <th>Nama Barang</th>
+                                        <th>Qty</th>
+                                        <th>Harga</th>
+                                        <th>Disc.(%)</th>
+                                        <th>Subtotal_X</th>
+                                        <th>Subtotal_OK</th>
+                                    </tr>
+                                </thead>
+                                <?php 
+                            $no = 0;
+                            foreach ($juald as $k){
+                                $subtotal = $k->qty * $k->harga;
+                                $disc = $subtotal * ($k->discount/100);
+                                $subtotal_disc = $subtotal - $disc;
+                                if ($k->subtotal != ($subtotal_disc)){
+                                    $no++;
+                                    ?>
+                                <tr>
+                                    <td align='center'>{{ $no }}</td>
+                                    <td>{{ $k->nojual }}</td>
+                                    <td>{{ $k->kdbarang }}</td>
+                                    <td>{{ $k->nmbarang }}</td>
+                                    <td style='text-align:right'>{{ $k->qty }}</td>
+                                    <td style='text-align:right'>{{ $k->harga }}</td>
+                                    <td style='text-align:right'>{{ $k->disc }}</td>
+                                    <td style='text-align:right'>{{ $k->subtotal }}</td>
+                                    <td style='text-align:right'>{{ $subtotal_disc }}</td>
+                                </tr>
+                                <?php
+                                }
+                            }
+                        ?>
+                            </table>
+                            {{-- end cek jual --}}
+                        </div>
+                    </div>
+
                 </div>
-                <div id='tbl-rso'></div>
+                {{-- <div id='tbl-rso'></div> --}}
                 {{-- </div> --}}
             </div><!-- /.container-fluid -->
         </div>

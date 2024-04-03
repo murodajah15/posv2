@@ -90,7 +90,7 @@ $session = session();
             $('#kdsales').val(((dt_split[1]).replace("--separator--", "")).trim());
             $('#nmsales').val(((dt_split[2]).replace("--separator--", "")).trim());
             $('#modalcarisales').modal('hide');
-            $('#modaltambahmaster').modal('show');
+            // $('#modaltambahmaster').modal('show');
             $('#kdsales').focus();
         };
     }

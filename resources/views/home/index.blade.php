@@ -815,6 +815,19 @@
                 $(document.getElementsByName('btn_sales')).show();
             }
         });
+        $('#checkall_kurir').on('click', function(event) {
+            if (this.checked) // if changed state is "CHECKED"
+            {
+                // alert(this.checked);
+                $(document.getElementsByName('kdkurir')).hide();
+                $(document.getElementsByName('nmkurir')).hide();
+                $(document.getElementsByName('btn_kurir')).hide();
+            } else {
+                $(document.getElementsByName('kdkurir')).show();
+                $(document.getElementsByName('nmkurir')).show();
+                $(document.getElementsByName('btn_kurir')).show();
+            }
+        });
         $('#checkall_resetfile').on('click', function(event) {
             if (this.checked) // if changed state is "CHECKED"
             {

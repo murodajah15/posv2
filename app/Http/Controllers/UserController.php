@@ -125,7 +125,6 @@ class UserController extends Controller
         } else {
             $path = '';
         }
-        // ddd($path);
         if ($validated) {
             $user = new User();
             // $user->fill($request->all());

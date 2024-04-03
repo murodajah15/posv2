@@ -25,22 +25,27 @@ if ($semuaperiode != 'Y') {
 echo 'Tanggal : ' . $tanggal . '</font>';
 
 if ($semuacustomer != 'Y') {
-    echo 'Customer : ' . $kdcustomer . ' - ' . $nmcustomer;
+    echo ', Customer : ' . $kdcustomer . ' - ' . $nmcustomer;
 } else {
     $kdcustomer = '';
 }
 if ($semuasales != 'Y') {
-    echo 'Sales : ' . $semuasales . '   ' . $kdsales . ' - ' . $nmsales;
+    echo ', Sales : ' . $semuasales . '   ' . $kdsales . ' - ' . $nmsales;
 } else {
     $kdsales = '';
 }
+if ($semuakurir != 'Y') {
+    echo ', Kurir : ' . $semuakurir . '   ' . $kdkurir . ' - ' . $nmkurir;
+} else {
+    $kdkurir = '';
+}
 if ($semuaklpcust != 'Y') {
-    echo 'Kelompok Customer : ' . $kdklpcust . ' - ' . $nmklpcust;
+    echo ', Kelompok Customer : ' . $kdklpcust . ' - ' . $nmklpcust;
 } else {
     $kdklpcust = '';
 }
 if ($semuabarang != 'Y') {
-    echo 'Barang : ' . $kdbarang . ' - ' . $nmbarang;
+    echo ', Barang : ' . $kdbarang . ' - ' . $nmbarang;
 } else {
     $kdbarang = '';
 }
@@ -78,6 +83,7 @@ if ($rincian == 'Y') {
         $q = "select jualh.*,tbcustomer.kdklpcust,tbcustomer.nmklpcust from jualh inner join tbcustomer on tbcustomer.kode=jualh.kdcustomer where jualh.proses='Y'";
         $q .= $semuaklpcust == 'Y' ? ' ' : " and tbcustomer.kdklpcust='$kdklpcust'";
         $q .= $semuasales == 'Y' ? ' ' : " and jualh.kdsales='$kdsales'";
+        $q .= $semuakurir == 'Y' ? ' ' : " and jualh.kdkurir='$kdkurir'";
         $q .= $semuacustomer == 'Y' ? ' ' : " and jualh.kdcustomer='$kdcustomer'";
         $q .= $pilihanppn == 'ppn' ? ' and jualh.ppn>0' : '';
         $q .= $pilihanppn == 'nonppn' ? ' and jualh.ppn=0' : '';
@@ -116,6 +122,7 @@ if ($rincian == 'Y') {
                 $qh = "select jualh.*, tbcustomer.kdklpcust,tbcustomer.nmklpcust from jualh left join tbcustomer on tbcustomer.kode=jualh.kdcustomer where jualh.proses='Y' and jualh.kdcustomer='$kdcustomer'";
                 $qh .= $semuaklpcust == 'Y' ? ' ' : " and tbcustomer.kdklpcust='$kdklpcust'";
                 $qh .= $semuasales == 'Y' ? ' ' : " and jualh.kdsales='$kdsales'";
+                $qh .= $semuakurir == 'Y' ? ' ' : " and jualh.kdkurir='$kdkurir'";
                 // $qh .= $kdcustomer == '' ? " " : " and jualh.kdcustomer='$kdcustomer'";
                 $qh .= $pilihanppn == 'ppn' ? ' and jualh.ppn>0' : '';
                 $qh .= $pilihanppn == 'nonppn' ? ' and jualh.ppn=0' : '';
@@ -145,6 +152,10 @@ if ($rincian == 'Y') {
                         $rowgc['kdsales'] .
                         '-' .
                         $rowgc['nmsales'] .
+                        ', Kurir : ' .
+                        $rowgc['kdkurir'] .
+                        '-' .
+                        $rowgc['nmkurir'] .
                         '</td>';
                     echo '<td></td><td></td>';
                 }
@@ -393,6 +404,7 @@ if ($rincian == 'Y') {
         $qh = "select jualh.*, tbcustomer.kdklpcust,tbcustomer.nmklpcust from jualh inner join tbcustomer on tbcustomer.kode=jualh.kdcustomer where jualh.proses='Y'";
         $qh .= $semuaklpcust == 'Y' ? ' ' : " and tbcustomer.kdklpcust='$kdklpcust'";
         $qh .= $semuasales == 'Y' ? ' ' : " and jualh.kdsales='$kdsales'";
+        $qh .= $semuakurir == 'Y' ? ' ' : " and jualh.kdkurir='$kdkurir'";
         $qh .= $semuacustomer == 'Y' ? ' ' : " and jualh.kdcustomer='$kdcustomer'";
         $qh .= $pilihanppn == 'ppn' ? ' and ppn>0' : '';
         $qh .= $pilihanppn == 'nonppn' ? ' and ppn=0' : '';
@@ -448,6 +460,10 @@ if ($rincian == 'Y') {
                     $row['kdsales'] .
                     '-' .
                     $row['nmsales'] .
+                    ', ' .
+                    $row['kdkurir'] .
+                    '-' .
+                    $row['nmkurir'] .
                     '</td>';
                 echo '<td></td><td></td>';
                 // echo '<td height="10px" align="right">' . $sudahbayarf  . '</td>
@@ -617,11 +633,12 @@ if ($rincian == 'Y') {
     echo '<table table-layout="fixed"; cellpadding="2"; cellspacing="0"; style=font-size:11px; class="table table-striped table table-bordered;">
     <tr>
     <th width="20px" height="20"><font size="1" color="black"><b>NO.</th>
-    <th width="110px"><font size="1" color="black"><b>NOMOR</th>
-    <th width="75px"><font size="1" color="black"><b>TANGGAL</th>
+    <th width="100px"><font size="1" color="black"><b>NOMOR</th>
+    <th width="80px"><font size="1" color="black"><b>TANGGAL</th>
     <th width="60px"><font size="1" color="black"><b>KODE<br>CUSTOMER</th>
     <th width="350px"><font size="1" color="black"><b>CUSTOMER</th>
     <th width="120px"><font size="1" color="black"><b>SALES</th>
+    <th width="120px"><font size="1" color="black"><b>KURIR</th>
     <th width="80px"><font size="1" color="black"><b>CARA BAYAR</th>
     <th width="80px"><font size="1" color="black"><b>SUBTOTAL</th>
     <th width="75x"><font size="1" color="black"><b>DISC.</th>
@@ -642,6 +659,7 @@ if ($rincian == 'Y') {
     $grandqty = 0;
     $q = "select jualh.*,tbcustomer.kdklpcust,tbcustomer.nmklpcust from jualh inner join tbcustomer on tbcustomer.kode=jualh.kdcustomer where jualh.proses='Y'";
     $q .= $semuasales == 'Y' ? ' ' : " and jualh.kdsales='$kdsales'";
+    $q .= $semuakurir == 'Y' ? ' ' : " and jualh.kdkurir='$kdkurir'";
     $q .= $semuaklpcust == 'Y' ? ' ' : " and tbcustomer.kdklpcust='$kdklpcust'";
     $q .= $semuacustomer == 'Y' ? ' ' : " and jualh.kdcustomer='$kdcustomer'";
     $q .= $pilihanppn == 'ppn' ? ' and jualh.ppn>0' : '';
@@ -669,6 +687,7 @@ if ($rincian == 'Y') {
         $qh .= $semuacustomer == 'Y' ? ' ' : " and jualh.kdcustomer='$kdcustomer'";
         $qh .= $semuaklpcust == 'Y' ? ' ' : " and tbcustomer.kdklpcust='$kdklpcust'";
         $qh .= $semuasales == 'Y' ? ' ' : " and jualh.kdsales='$kdsales'";
+        $qh .= $semuakurir == 'Y' ? ' ' : " and jualh.kdkurir='$kdkurir'";
         $qh .= $pilihanppn == 'ppn' ? ' and ppn>0' : '';
         $qh .= $pilihanppn == 'nonppn' ? ' and ppn=0' : '';
         $qh .= $semuaperiode == 'Y' ? ' ' : " and (tgljual>='$tgl1' and tgljual<='$tgl2')";
@@ -705,6 +724,7 @@ if ($rincian == 'Y') {
                         $nocust++;
                         $qjum = "select sum(total) as total,sum(kurangbayar) as kurangbayar,sum(sudahbayar) as sudahbayar from jualh where kdcustomer='$row[kdcustomer]' and jualh.proses='Y'";
                         $qjum .= $semuasales == 'Y' ? ' ' : " and jualh.kdsales='$kdsales'";
+                        $qjum .= $semuakurir == 'Y' ? ' ' : " and jualh.kdkurir='$kdkurir'";
                         $qjum .= $pilihanppn == 'ppn' ? ' and ppn>0' : '';
                         $qjum .= $pilihanppn == 'nonppn' ? ' and ppn=0' : '';
                         $qjum .= $semuaperiode == 'Y' ? ' ' : " and (tgljual>='$tgl1' and tgljual<='$tgl2')";
@@ -787,6 +807,11 @@ if ($rincian == 'Y') {
                             $row['kdsales'] .
                             ' - ' .
                             $row['nmsales'] .
+                            '</td>
+                        <td height="10px">' .
+                            $row['kdkurir'] .
+                            ' - ' .
+                            $row['nmkurir'] .
                             '</td>
                         <td height="10px">' .
                             $row['carabayar'] .
@@ -885,6 +910,11 @@ if ($rincian == 'Y') {
                         $row['nmsales'] .
                         '</td>
                     <td height="10px">' .
+                        $row['kdkurir'] .
+                        ' - ' .
+                        $row['nmkurir'] .
+                        '</td>
+                    <td height="10px">' .
                         $row['carabayar'] .
                         '</td>
                     <td height="10px" align="right">' .
@@ -932,7 +962,7 @@ if ($rincian == 'Y') {
         $gtqtyf = number_format($gtqty, 2, '.', ',');
         if ($groupingcustomer == 'Y') {
             echo '<tr>
-            <td colspan="7" height="10px" align="left" style="font-weight:bold;">&nbsp;' .
+            <td colspan="8" height="10px" align="left" style="font-weight:bold;">&nbsp;' .
                 'Total &nbsp;</td>' .
                 '
             <td align="right" style="font-weight:bold;">' .
@@ -969,7 +999,7 @@ if ($rincian == 'Y') {
     $grandtqtyf = number_format($grandqty, 0, '.', ',');
     if ($semuaklpcust == 'Y') {
         echo '<tr>
-        <td colspan="7" height="10px" align="left" style="font-weight:bold;">&nbsp;' .
+        <td colspan="8" height="10px" align="left" style="font-weight:bold;">&nbsp;' .
             'Grand Total &nbsp;</td>' .
             '
         <td align="right" style="font-weight:bold;">' .

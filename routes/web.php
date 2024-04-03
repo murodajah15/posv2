@@ -97,6 +97,7 @@ Route::middleware('auth')->group(function () {
   //Tbmodule
   Route::resource('/tbmodule', \App\Http\Controllers\TbmoduleController::class);
   Route::get('tbmoduleajax', [TbmoduleController::class, 'tbmoduleajax'])->name('tbmoduleajax');
+  Route::get('tbmodule_urutkan', [TbmoduleController::class, 'tbmodule_urutkan'])->name('tbmodule_urutkan');
   //Users
   // Route::get('users', [UsersController::class, 'index'])->name('users.index');
   Route::get('userajax', [UserController::class, 'userajax'])->name('userajax');
@@ -521,6 +522,7 @@ Route::get('generate', function () {
 
 Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+Route::get('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
 //REGISTER
 Route::get('register', [RegisterController::class, 'register'])->name('register');

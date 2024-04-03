@@ -321,7 +321,7 @@
                                                 <li><a class="dropdown-item <?= $unproses == 1 ? '' : 'disabled' ?>"" onclick="unproses(${row.id})" href="#" readonly><i class='fa fa-arrow-left'"></i> Unproses</a></li>
                                                 <li><a class="dropdown-item <?= $cetak == 1 ? '' : 'disabled' ?>"" onclick="cetakfp(${row.id})" href="#" readonly><i class='fa fa-print'"></i> Cetak Faktur</a></li>
                                                 <li><a class="dropdown-item <?= $cetak == 1 ? '' : 'disabled' ?>"" onclick="cetaksj(${row.id})" href="#" readonly><i class='fa fa-print'"></i> Cetak Surat Jalan</a></li>
-                                                <li><a class="dropdown-item <?= $cetak == 1 ? '' : 'disabled' ?>"" onclick="kurir(${row.id})" href="#" readonly><i class='fa fa-truck-fast'"></i> Input Kurir</a></li>
+                                                <li><a class="dropdown-item <?= $proses == 1 ? '' : 'disabled' ?>"" onclick="kurir(${row.id})" href="#" readonly><i class='fa fa-truck-fast'"></i> Input Kurir</a></li>
                                             </ul>
                                             </div>`;
                                         } else {

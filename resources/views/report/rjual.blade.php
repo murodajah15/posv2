@@ -108,6 +108,23 @@
                                 </div>
                                 <div class='row'>
                                     <div class='col-md-6'>
+                                        <input type='checkbox' class='form-checkbox' name='semuakurir'
+                                            id='checkall_kurir' value='semuakurir' checked> Semua Kurir
+                                        <div class="input-group mb-2">
+                                            <input type="text" name="kdkurir" id="kdkurir"
+                                                class="form-control form-control-sm" style="width: 30%"
+                                                placeholder="Kode kurir">
+                                            <input type="text" name="nmkurir" id="nmkurir"
+                                                class="form-control form-control-sm" style="width: 60%" readonly>
+                                            <button class="btn btn-outline-secondary btn-sm" type="button"
+                                                name='btn_kurir' id='btn_kurir' style="width: 7%" id="carikurir"><i
+                                                    class="fa fa-search"></i></button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class='row'>
+                                    <div class='col-md-6'>
                                         <input type='checkbox' class='form-checkbox' name='semuaklpcust'
                                             id='checkall_klpcust' value='semuaklpcust' checked> Semua Kelompok Customer
                                         <div class="input-group mb-2">
@@ -171,6 +188,9 @@
     <div class="modal fade" id="modalcarisales" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
     </div>
+    <div class="modal fade" id="modalcarikurir" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    </div>
     <div class="modal fade" id="modalcaricustomer" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
     </div>
@@ -215,6 +235,17 @@
                 }
             })
         })
+        $('#btn_kurir').on('click', function(e) {
+            $.ajax({
+                method: "GET",
+                url: "carikurir",
+                dataType: "json",
+                success: function(response) {
+                    $('#modalcarikurir').html(response.body)
+                    $("#modalcarikurir").modal('show');
+                }
+            })
+        })
         $('#btn_customer').on('click', function(e) {
             $.ajax({
                 method: "GET",
@@ -238,6 +269,9 @@
             $(document.getElementsByName('kdsales')).hide();
             $(document.getElementsByName('nmsales')).hide();
             $(document.getElementsByName('btn_sales')).hide();
+            $(document.getElementsByName('kdkurir')).hide();
+            $(document.getElementsByName('nmkurir')).hide();
+            $(document.getElementsByName('btn_kurir')).hide();
             $(document.getElementsByName('kdcustomer')).hide();
             $(document.getElementsByName('nmcustomer')).hide();
             $(document.getElementsByName('btn_customer')).hide();
@@ -312,6 +346,32 @@
                         }
                         $('#kdsales').val(data_response['kdsales']);
                         $('#nmsales').val(data_response['nmsales']);
+                    },
+                    error: function() {
+                        console.log('file not fount');
+                    }
+                })
+                // console.log(cari);
+            })
+
+            $('#kdkurir').on('blur', function(e) {
+                let cari = $(this).val();
+                $.ajax({
+                    url: 'replkurir',
+                    type: 'get',
+                    data: {
+                        kode: cari
+                    },
+                    success: function(response) {
+                        let data_response = JSON.parse(response);
+                        if (!data_response) {
+                            $('#kdkurir').val('');
+                            $('#nmkurir').val('');
+                            cari_data_kurir();
+                            return;
+                        }
+                        $('#kdkurir').val(data_response['kdkurir']);
+                        $('#nmkurir').val(data_response['nmkurir']);
                     },
                     error: function() {
                         console.log('file not fount');

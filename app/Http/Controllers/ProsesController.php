@@ -80,6 +80,10 @@ class ProsesController extends Controller
             'opnameh' => Opnameh::orderBy('tglopname', 'desc')->get(),
             'userdtlmenu' => Userdtl::join('tbmodule', 'userdtl.cmodule', '=', 'tbmodule.cmodule')->where('userdtl.pakai', '1')->where('username', $username)->orderBy('userdtl.nurut')->get(),
             'userdtl' => Userdtl::where('cmodule', 'Closing Bulanan dan HPP')->where('username', $username)->first(),
+            'juald' => Juald::where('proses', 'Y')->orderBy('tgljual', 'desc')->get(),
+            'belid' => Belid::where('proses', 'Y')->orderBy('tglbeli', 'desc')->get(),
+            'terimad' => Terimad::where('proses', 'Y')->orderBy('tglterima', 'desc')->get(),
+            'keluard' => Keluard::where('proses', 'Y')->orderBy('tglkeluar', 'desc')->get(),
         ];
         $userdtl = Userdtl::where('cmodule', 'Closing Bulanan dan HPP')->where('username', $username)->first();
         if ($userdtl->pakai == '1') {

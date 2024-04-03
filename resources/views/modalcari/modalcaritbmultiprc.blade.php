@@ -106,7 +106,7 @@ $session = session();
             $('#kdsatuan').val(((dt_split[5]).replace("--separator--", "")).trim());
             $('#harga').val(((dt_split[4]).replace("--separator--", "")).trim());
             $('#modalcaritbmultiprc').modal('hide');
-            $('#modaleditdetail').modal('show');
+            // $('#modaleditdetail').modal('show');
             $('#kdbarang').focus();
         };
     }
